@@ -1,0 +1,25 @@
+<!-- begin registration form -->
+<% form_for(:user) do |f| %>
+  <p><%= f.error_messages %></p>
+  <p>
+      <!-- username field -->
+      <%= f.label :username %>
+      <%= f.text_field :username, :size => 32 %>      
+      
+      <!-- password field -->
+      <%= f.label :password %>
+      <%= f.password_field :password, :size => 32 %>  
+      
+      <!-- password confirm -->
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, :size => 32 %>
+      
+      <!-- email -->
+      <%= f.label "E-mail" %>
+      <%= f.text_field :email, :size => 32 %>
+
+      <!-- submit -->
+      <br/><br/>
+      <%= f.submit "Register", :class => 'button' %>
+  </p>
+<% end %>

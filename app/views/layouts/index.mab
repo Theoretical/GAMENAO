@@ -1,0 +1,53 @@
+xhtml_strict()
+
+html do
+  head do
+    title 'GAMENAO - ' + controller_name
+    javascript_include_tag :defaults
+    stylesheet_link_tag 'PixelGreen'
+  end
+
+  body do
+    div :id => 'wrap' do
+      div :id => 'header' do
+        div :id => 'header-content' do
+          
+	  # logo text
+	  h1 :id => 'logo' do 
+            a :href => '/index' do 
+
+	      span 'GAMENAO'
+	      span.small 'beta' 
+            end 
+          end
+
+	  # slogan text
+	  h2 :id => 'slogan' do 
+	    # create user
+	    unless session[:user_id].nil?
+	      user = User.find_by_id(session[:user_id])
+              if user
+                self << "Welcome " + link_to(user.username.to_s, :action => 'index') 
+	      end
+	    else
+	      self << 'Online Gaming Community | login '
+	      link_to "here", :controller => "member"
+            end
+           
+          end
+
+	  ul do
+	    li do a 'Home', :id => 'current', :href => '/index' end
+	    li do a 'Arcade', :href => '/arcade' end
+	    li do a 'Media' end
+	    li do a :href => '/forum/' do 'Forum' end end
+          end
+	
+        end	
+      end
+
+      self << yield
+
+    end
+  end
+end

@@ -1,0 +1,39 @@
+      div.headerphoto ''
+
+      # content wrappers
+      div :id => 'content-wrap' do 
+        div :id => 'content' do
+          
+	  # sidebar
+	  div :id => 'sidebar' do
+            div.sidebox do
+              h1 'Why Donate?'
+	      p 'Any website where you have users contributing content can be pricy. Each upload server that goes live costs us an additional $15/month right now we have several servers costing us roughly $75.00/month.'
+            end
+          end
+
+	  # main content
+	  div :id => 'main' do
+	    div.post do
+ 	      for article in @articles do
+	        h1 article.title
+		user = User.find_by_id(article.user_id)
+ 		username = user.username.to_s
+	        p do
+		  self << 'Posted by ' + link_to(username, :controller => :member, :action => username)
+   	        end
+	        p article.content
+
+		p :class => 'post-footer align-right' do
+		  a.readmore :href => 'index.html' do 'Read more' end
+		  a.comments :href => 'index.html' do 
+		    self << 'Comments (' + user.post_comments.count.to_s + ')' 
+		  end
+		  span.date article.created_at.strftime("%b %d, %Y")
+		end
+
+	      end
+	    end
+	  end
+        end
+      end

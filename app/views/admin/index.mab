@@ -1,0 +1,10 @@
+div :id => "content-wrap" do
+  div :id => "content" do
+
+      div.post do 
+        h1 'Recent Signups'
+        render 'admin/list_users'
+      end
+  end
+end
+

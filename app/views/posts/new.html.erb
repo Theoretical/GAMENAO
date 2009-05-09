@@ -1,0 +1,25 @@
+<div id="content-wrap">
+<div id="content">
+
+<h1>New post</h1>
+
+<% form_for(@post) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', posts_path %>
+
+</div>
+</div>

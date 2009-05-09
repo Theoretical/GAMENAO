@@ -1,0 +1,26 @@
+div :id => 'content-wrap' do
+  div :id => 'content' do
+
+      h1 'Register Account'
+	
+      # sidebar
+      div :id => 'sidebar' do
+        div.sidebox do
+           h1 'Welcome to Beta'
+           p 'This is a short about because we will test you will and have your file execute your file name and test your name.'
+        end
+      end
+      
+
+
+      div :id => 'main' do
+        div.post do 
+          # begin registration form
+          render :partial => 'register'          
+
+        end
+      end      
+
+
+  end
+end

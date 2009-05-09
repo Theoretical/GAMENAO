@@ -1,0 +1,36 @@
+<!-- begin registration form -->
+<% form_tag '/upload/manga', :multipart => true do %>
+  <p>
+      <%= label_tag :series %>
+      Please select a manga
+      <%= collection_select(:manga, :id, Manga.all, :id, :title) %>
+     
+      <%= label_tag :volume %>
+      Please enter the volume number for this chapter<br>
+      <%= text_field :volume, :volume, :size => 1 %>
+      
+      <%= label_tag :chapter %>
+      Please enter the chapter number <u>note</u>: chapter section can be blank<br>
+      <i>example: chapter 1.5</i><br/>
+      <%= text_field :chapter, :chapter, :size => 1, :value => "000" %> . <%= text_field :chapter, :section, :size => 1, :value => "0" %>
+      
+      <%= label_tag :title %>
+      Please enter the chapter title<br>
+      <%= text_field :chapter, :title, :size => 32 %>
+      
+      <%= label_tag :scanlator %>
+      Please enter the scanlator for the chapter<br>
+      <%= text_field :chapter, :scanlator, :size => 32 %>
+
+      <%= label_tag :chapter_comment %>
+      (optional) enter comment for moderator<br>
+      <%= text_field :chapter_comment, :chapter_comment, :size => 32 %>
+
+      <%= label_tag :file %>
+      <%= file_field 'upload', 'datafile' %>
+
+      <!-- submit -->
+      <br/><br/>
+      <%= submit_tag "Upload", :class => 'button' %>
+  </p>
+<% end %>

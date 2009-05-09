@@ -1,0 +1,22 @@
+div :id => 'content-wrap' do div :id => 'content' do
+
+  br
+  
+  div :id => 'sidebar' do
+    div.sidebox do 
+      h1 'Attention'
+      p 'Uploaded content is monitored. All uploads will be reviewed before being added to BaKaViSiOn. Any violations of our terms of service will result in account termination or a permentant ban from our services. For more information read our terms of service.'
+    end
+  end 
+
+  div :id => 'main' do
+    div.post do  
+
+      h1 'File Upload'
+      render :partial => 'manga'
+
+
+    end
+  end
+
+end end

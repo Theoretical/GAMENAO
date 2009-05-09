@@ -1,0 +1,22 @@
+div :id => 'content-wrap' do
+  div :id => 'content' do
+
+      h1 'Login'
+
+      div :id => 'main' do
+        div.post do 
+   	  p flash[:notice]
+          p do
+ 	    self << 'Dont have an account? No problem! Register '
+	    link_to "here", :action => "register"
+	  end
+
+          # begin registration form
+          render :partial => 'login'          
+
+        end
+      end      
+
+
+  end
+end

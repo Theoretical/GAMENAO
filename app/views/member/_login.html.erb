@@ -1,0 +1,15 @@
+<% form_tag :action => "login" do %>
+  <p>
+    <label for='username'>Username</label>
+    <%= text_field_tag :username, params[:username], :size => 32 %>
+  
+    <label for="password">Password</label>
+    <%= password_field_tag :password, params[:password], :size => 32 %>
+
+    <br><br>
+    <span>Remember me?</span>
+    <%= check_box_tag :remember, { :class => 'check' }, "remember" %>
+    <br><br>
+    <%= submit_tag "Login", :class => 'button' %>
+  </p>
+<% end %>

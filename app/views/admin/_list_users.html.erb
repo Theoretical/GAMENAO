@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th>date</th>
+    <th>username</th>
+    <th>e-mail</th>
+    <th>ip address</th>
+    <th>block</th>
+  </tr>
+
+<% for user in @users %>
+  <% if user.id.odd? then %>
+  <tr class="row-a">
+  <% else %>
+  <tr class="row-b">
+  <% end %>
+    <td><%=h user.created_at.strftime("%m.%d.%Y") %></td>
+    <td><%=h user.username %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.ip %></td>
+    <td><%= link_to image_tag('icons/delete.png'), :controller => "member" %></td>
+  </tr>
+<% end %>
+</table>
+
+</div></div>
